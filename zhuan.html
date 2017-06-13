@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>Document</title>
+
+		<script src="https://cdn.rawgit.com/konvajs/konva/1.4.0/konva.min.js"></script>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+				background-color: #F0F0F0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="container"></div>
+	</body>
+	<script type="text/javascript">
+		var width = window.innerWidth;
+		var height = window.innerHeight;
+		var stage = new Konva.Stage({
+			container: 'container',
+			width: width,
+			height: height
+		});
+		var layer = new Konva.Layer();
+		var circle = new Konva.Circle({
+			x: stage.getWidth() / 2,
+			y: stage.getHeight() / 2,
+			radius: 70,
+			fill: 'red',
+			stroke: 'black',
+			strokeWidth: 4
+		});
+
+		var circl = new Konva.Circle({
+			x: stage.getWidth() / 2,
+			y: stage.getHeight() / 2,
+			radius: 170,
+
+			stroke: 'black',
+			strokeWidth: 4
+		});
+
+		var circls = new Konva.Circle({
+			x: stage.getWidth() / 2,
+			y: stage.getHeight() / 2,
+			radius: 270,
+
+			stroke: 'black',
+			strokeWidth: 4
+		});
+
+		var yellowRect = new Konva.Circle({
+			x: stage.getWidth() / 2,
+			y: stage.getHeight() / 2,
+
+			radius: 30,
+
+			fill: 'yellow',
+			stroke: 'black',
+			strokeWidth: 4,
+			offset: {
+				x: 120,
+				y: 120
+			}
+		});
+		var yellowRect2 = new Konva.Circle({
+			x: stage.getWidth() / 2,
+			y: stage.getHeight() / 2,
+
+			radius: 40,
+
+			fill: 'yellow',
+			stroke: 'black',
+			strokeWidth: 4,
+			offset: {
+				x: -240,
+				y: -120
+			}
+		});
+
+		var Text = new Konva.Text({
+			x: stage.getWidth() / 2 - 60,
+			y: stage.getHeight() / 2 - 10,
+			text: '我要碎觉',
+			fontSize: 30,
+			fontFamily: 'Calibri',
+			fill: 'green',
+
+		});
+
+		var Text1 = new Konva.Text({
+			x: stage.getWidth() / 2,
+			y: stage.getHeight() / 2,
+			text: '烦',
+			fontSize: 30,
+			fontFamily: 'Calibri',
+			fill: 'red',
+			offset: {
+				x: 140,
+				y: 140
+			}
+		});
+
+		var Text2 = new Konva.Text({
+			x: stage.getWidth() / 2,
+			y: stage.getHeight() / 2,
+			text: '烦',
+			fontSize: 30,
+			fontFamily: 'Calibri',
+			fill: 'red',
+			offset: {
+				x: -230,
+				y: -110
+			}
+		});
+		layer.add(yellowRect2);
+		layer.add(yellowRect);
+		layer.add(circle);
+		layer.add(circl);
+		layer.add(circls);
+		layer.add(Text);
+		layer.add(Text1);
+		layer.add(Text2);
+		stage.add(layer);
+
+		var angularSpeed = 90;
+		var anim = new Konva.Animation(function(frame) {
+			var angleDiff = frame.timeDiff * angularSpeed / 1000;
+
+			yellowRect.rotate(angleDiff);
+			yellowRect2.rotate(angleDiff);
+			Text1.rotate(angleDiff);
+			Text2.rotate(angleDiff);
+		}, layer);
+		anim.start();
+	</script>
+
+</html>
