@@ -53,7 +53,9 @@
             ctx.fillText(x, 200, 212);
             ctx.closePath();
             ming.value="";
-        
+          var image = new Image();
+        image.src = canvas.toDataURL("image/png");
+        window.open(canvas.toDataURL());
             
        	}else(alert("请输入内容"))
        
@@ -62,12 +64,7 @@
        
 
       
-      btn.onclick=function(){
-
-        var image = new Image();
-        image.src = canvas.toDataURL("image/png");
-        window.open(canvas.toDataURL());
-           }
+    
 
       
    
