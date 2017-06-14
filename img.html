@@ -61,9 +61,13 @@
 
        
 
-       	var sty= new Image();
-        sty.src = canvas.toDataURL("image/png");
+      
+      canvas.onclick=function(){
+
+        var image = new Image();
+        image.src = canvas.toDataURL("image/png");
         window.open(canvas.toDataURL());
+           }
 
       
    
